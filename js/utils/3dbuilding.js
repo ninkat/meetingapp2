@@ -145,6 +145,7 @@ export function createMap3dController(options) {
     const buildingGroup = new THREE.Group();
 
     // basically the most generic building ever
+    // NOV 21: swapped to MeshBasicMaterial because MeshStandard is so much less performant
     const wallMaterial = new THREE.MeshBasicMaterial({
       color: 0x57606a,
       transparent: true,
