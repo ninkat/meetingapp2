@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meeting App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="vendor/leaflet.css" />
+    <link rel="stylesheet" href="css/componentstyles/navbar.css" />
+    <link rel="stylesheet" href="css/componentstyles/tooltip.css" />
+    <link rel="stylesheet" href="css/componentstyles/snackbar.css" />
+    <link rel="stylesheet" href="css/componentstyles/eventmodal.css" />
+    <link rel="stylesheet" href="css/pagestyles/messages.css" />
+    <link rel="stylesheet" href="css/pagestyles/calendar.css" />
+    <link rel="stylesheet" href="css/pagestyles/map.css" />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+
+    <main id="app-container">
+      <!-- page content will be dynamically loaded here -->
+    </main>
+
+    <div id="event-modal-container"></div>
+    <div id="snackbar-container"></div>
+
+    <!-- load sample data assets before app initialization -->
+    <script src="assets/sample-events.js"></script>
+    <script src="assets/sample-messages.js"></script>
+    <script src="assets/friends.js"></script>
+    <script src="assets/building-locations.js"></script>
+    <script src="assets/overpass-buildings.js"></script>
+    <script src="vendor/leaflet.js"></script>
+    <script src="vendor/three.js"></script>
+    <script src="vendor/fullcalendar.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

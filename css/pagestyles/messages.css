@@ -1,0 +1,689 @@
+/* messages page layout */
+.friends-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  color: #24292f;
+  overflow: hidden;
+}
+
+/* sidebar */
+.friends-sidebar {
+  width: 320px;
+  background-color: #f6f8fa;
+  border-right: 1px solid #d0d7de;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.friends-sidebar-search {
+  /* the .5px is to line up the borderbottom with the dm header */
+  padding: 12.5px;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.friends-search-wrapper {
+  position: relative;
+}
+
+.friends-search-input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  color: #24292f;
+  transition: border-color 0.2s ease, border-radius 0.2s ease,
+    box-shadow 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.friends-search-input:focus {
+  border-color: #0969da;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+  z-index: 11;
+}
+
+.friends-search-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 1px);
+  max-height: 320px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #0969da;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.15);
+  z-index: 10;
+  display: none;
+}
+
+.friends-search-result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f6f8fa;
+}
+
+.friends-search-result:last-child {
+  border-bottom: none;
+  border-radius: 0 0 6px 6px;
+}
+
+.friends-search-result:hover {
+  background-color: #f6f8fa;
+}
+
+.friends-search-result-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.friends-search-no-results {
+  padding: 16px 12px;
+  font-size: 14px;
+  color: #57606a;
+  text-align: center;
+}
+
+.friends-view-toggle {
+  padding: 8px 12px;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.friends-view-button {
+  width: 100%;
+  padding: 6px 10px;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.friends-view-button.active {
+  background-color: #0969da;
+  color: #ffffff;
+  border-color: #0969da;
+}
+
+.friends-dm-header {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d0d7de;
+}
+
+.friends-dm-header-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.friends-dm-create-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #57606a;
+}
+
+.friends-dm-create-button:hover {
+  background-color: #eaeef2;
+  color: #24292f;
+}
+
+.friends-dm-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.friends-dm-entry,
+.friends-list-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.friends-dm-entry:hover,
+.friends-list-entry:hover {
+  background-color: #f3f4f6;
+}
+
+.friends-dm-entry.active {
+  background-color: #eaeef2;
+}
+
+.friends-dm-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #0969da;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.friends-dm-avatar.group {
+  background-color: #8250df;
+}
+
+.friends-dm-status {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #f6f8fa;
+  bottom: -2px;
+  right: -2px;
+}
+
+.friends-dm-status.online {
+  background-color: #1a7f37;
+}
+
+.friends-dm-status.offline {
+  background-color: #8b949e;
+}
+
+.friends-dm-status.dnd {
+  background-color: #cf222e;
+}
+
+.friends-dm-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friends-dm-name {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friends-dm-preview {
+  font-size: 13px;
+  color: #57606a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friends-dm-timestamp {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.friends-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* right side: conversation */
+.friends-conversation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.friends-conversation-header {
+  height: 64px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.friends-conversation-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.friends-conversation-avatar:empty {
+  display: none;
+}
+
+.friends-header-options {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.friends-header-option {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.friends-header-option.active {
+  background-color: #0969da;
+  color: #ffffff;
+}
+
+.friends-friends-search {
+  padding: 8px 16px;
+  border-bottom: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+}
+
+.friends-friends-search-input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+}
+
+.friends-messages-area {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.friends-messages-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #57606a;
+}
+
+.friends-message {
+  display: flex;
+  gap: 10px;
+  max-width: 70%;
+}
+
+.friends-message.own {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.friends-message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #0969da;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.friends-message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.friends-message-header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.friends-message-author {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.friends-message-time {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.friends-message-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* message input */
+.friends-message-input-container {
+  padding: 12px 16px;
+  border-top: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  display: flex;
+}
+
+.friends-message-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.friends-chat-action-button {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #57606a;
+}
+
+.friends-message-input {
+  flex: 1;
+  padding: 8px 40px 8px 36px;
+  min-height: 36px;
+  max-height: 160px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background-color: #ffffff;
+  color: #24292f;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.friends-message-input:focus {
+  border-color: #0969da;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+}
+
+.friends-send-button {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  padding: 4px 12px;
+  min-height: 26px;
+  border-radius: 4px;
+  border: none;
+  background-color: #0969da;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.friends-send-button:disabled {
+  background-color: #d0d7de;
+  cursor: not-allowed;
+}
+
+/* chat action menu */
+.friends-chat-action-menu {
+  position: fixed;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1000;
+}
+
+.friends-chat-action-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.friends-chat-action-menu-item:hover {
+  background-color: #f6f8fa;
+}
+
+.friends-chat-action-icon {
+  font-size: 16px;
+}
+
+/* invite modal */
+.friends-invite-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* to beat navbar*/
+  z-index: 10001;
+}
+
+.friends-invite-modal {
+  width: 480px;
+  max-width: 90vw;
+  max-height: 80vh;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #d0d7de;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.friends-invite-modal-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #d0d7de;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.friends-invite-modal-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.friends-invite-modal-body {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.friends-invite-search-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.friends-invite-events-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.friends-invite-event-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+}
+
+.friends-invite-event-item:hover:not(.disabled):not(:disabled) {
+  background-color: #f6f8fa;
+}
+
+.friends-invite-event-item.disabled,
+.friends-invite-event-item:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.friends-invite-event-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.friends-invite-event-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.friends-invite-event-row {
+  font-size: 13px;
+  color: #57606a;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.friends-invite-event-status {
+  font-size: 13px;
+  color: #8b949e;
+}
+
+.friends-invite-no-events {
+  padding: 16px;
+  font-size: 14px;
+  text-align: center;
+  color: #57606a;
+}
+
+/* invitation message block */
+.friends-message-invitation {
+  margin-top: 4px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.friends-invitation-header {
+  font-size: 14px;
+}
+
+.friends-invitation-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #57606a;
+}
+
+.friends-invitation-detail {
+  display: flex;
+  gap: 6px;
+}
+
+.friends-invitation-icon {
+  flex-shrink: 0;
+}
+
+.friends-invitation-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.friends-invitation-button {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #0969da;
+  background-color: #0969da;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.friends-invitation-decline {
+  background-color: #ffffff;
+  color: #24292f;
+  border-color: #d0d7de;
+}
+
+.friends-invitation-button.disabled,
+.friends-invitation-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.friends-invitation-response {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background-color: #eaeef2;
+  font-size: 13px;
+  text-align: center;
+}

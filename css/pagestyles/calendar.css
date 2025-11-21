@@ -1,0 +1,258 @@
+/* calendar page layout */
+.calendar-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.calendar-header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  padding: 12px 20px 12px 12px;
+}
+
+.calendar-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calendar-search {
+  width: 320px;
+}
+
+.calendar-search-input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  color: #24292f;
+  font-size: 14px;
+}
+
+.calendar-create-button {
+  padding: 8px 12px;
+  background-color: #0969da;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.calendar-create-button:hover {
+  background-color: #0860ca;
+}
+
+.calendar-view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 0;
+}
+
+.calendar-view-button {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  color: #57606a;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.calendar-view-button:hover {
+  background-color: #f6f8fa;
+  color: #24292f;
+  border-color: #0969da;
+}
+
+.calendar-view-button.active {
+  background-color: #0969da;
+  color: #ffffff;
+  border-color: #0969da;
+}
+
+.calendar-header-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #d0d7de;
+  margin: 0 16px;
+}
+
+#calendar {
+  flex: 1;
+  min-height: 0;
+  background-color: #ffffff;
+}
+
+/* basic fullcalendar overrides */
+.fc .fc-toolbar.fc-header-toolbar {
+  margin: 8px 20px 8px 12px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.fc .fc-toolbar .fc-toolbar-chunk {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+
+.fc .fc-toolbar-title {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.fc .fc-timegrid-slot {
+  /* can change the range of times visible by changing the height */
+  height: 125px;
+}
+
+.fc .fc-button-primary {
+  background-color: #ffffff;
+  color: #24292f;
+  border: 1px solid #d0d7de;
+}
+
+.fc .fc-button-primary:hover,
+.fc .fc-button-primary:focus {
+  background-color: #f6f8fa;
+  color: #24292f;
+  border-color: #0969da;
+  box-shadow: none;
+}
+
+.fc .fc-button-primary:disabled {
+  background-color: #f6f8fa;
+  color: #8b949e;
+}
+
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number,
+.fc .fc-daygrid-event,
+.fc .fc-timegrid-slot-label,
+.fc .fc-timegrid-axis-cushion {
+  color: #24292f;
+}
+
+/* event content layout inside fullcalendar events */
+.fc .fc-timegrid-event .fc-event-main,
+.fc .fc-daygrid-event .fc-event-main {
+  padding: 4px 6px;
+}
+
+.calendar-event-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.calendar-event-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.calendar-event-emoji {
+  flex: 0 0 auto;
+  font-size: 20px;
+  /* windows emojis are too low by default. balancing mechanism */
+  transform: translateY(-3px);
+}
+
+.calendar-event-title {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.calendar-event-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.calendar-event-row-icon {
+  flex: 0 0 auto;
+}
+
+.calendar-event-row-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* event popover action menu */
+.calendar-event-popover {
+  position: fixed;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+  padding: 4px;
+  /* to make sure it's on top of everything */
+  z-index: 10002;
+  width: auto;
+}
+
+.calendar-event-popover.show {
+  display: flex;
+}
+
+.calendar-popover-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.calendar-popover-button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.calendar-popover-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #d0d7de;
+}

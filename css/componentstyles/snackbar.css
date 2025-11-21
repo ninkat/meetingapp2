@@ -1,0 +1,74 @@
+/* snackbar notification component styles */
+.calendar-snackbar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.calendar-snackbar.calendar-snackbar-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.calendar-snackbar-message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.calendar-snackbar-message {
+  font-size: 14px;
+  font-weight: 500;
+  color: #24292f;
+  white-space: nowrap;
+}
+
+.calendar-snackbar-notification {
+  font-size: 12px;
+  color: #57606a;
+  white-space: nowrap;
+}
+
+.calendar-snackbar-undo {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  color: #0969da;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.calendar-snackbar-dismiss {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  color: #57606a;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
