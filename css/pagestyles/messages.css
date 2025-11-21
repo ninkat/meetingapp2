@@ -410,6 +410,11 @@
   color: #57606a;
 }
 
+.friends-chat-action-button:hover {
+  background-color: #eaeef2;
+  color: #24292f;
+}
+
 .friends-message-input {
   flex: 1;
   padding: 8px 40px 8px 36px;

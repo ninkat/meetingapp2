@@ -139,6 +139,7 @@ const MessagesPage = {
                 class="friends-chat-action-button"
                 id="friends-chat-action-button"
                 data-tooltip="Use chat action"
+                data-tooltip-direction="above"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
